@@ -1,0 +1,13 @@
+div.card {
+    background-color: rgb(204, 198, 198);
+}
+table{
+    width:50%;
+   height: 200px;
+
+}
+th{
+    background-color: blue;
+    color: #fff8dc;
+    
+}

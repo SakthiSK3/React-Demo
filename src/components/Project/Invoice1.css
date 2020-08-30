@@ -1,0 +1,39 @@
+thead{
+    background-color: #bbb8b8d5;
+    color:  #000000;
+    font-size: 15px;
+}
+td{
+border-color: #000000;
+font-size: 13px;
+}
+div.card{
+   width: 80%;
+    
+}
+form {
+    text-align: right;
+}
+    .form-label{ 
+        text-align:right ;
+}
+
+
+.table .btn{
+    background-color:rgb(182, 17, 17);
+    color:#ffffff ;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    
+  }
+
+h4 .btn{
+    background-color: rgb(24, 172, 24);
+    color: #ffffff;
+    cursor: pointer;
+    border-radius: 5px ;
+    text-align: center;
+}
+
+  
