@@ -1,3 +1,7 @@
+.container{
+  width: 100%;
+  background-color: darkgrey;
+}
 img {
     margin-left: auto;
     margin-right: auto; 
@@ -14,23 +18,21 @@ div.a  {
 }
 .alignright {
   float: right;
-  
 } 
  label{
    background-color:#0000ff;
    color: white ;
-   width: 200% ;
-   font-size:90% ;
+   width: 90% ;
+   font-size:80% ;
  }
 
 
-span {
-  background-color: #0000ff;
-  width: auto;
+.Invoice{
+  widows: 50%;
 }
 
-
 thead{
+ 
   background-color: #bbb8b8d5;
   color:  #000000;
   font-size: 15px;
@@ -41,10 +43,13 @@ font-size: 13px;
 }
 div.card{
  width: 90%;
- 
+ background-color:#ffffff;
+ border: 2px solid block;
+ margin-left: 5%;
+margin-right:5% ;
+margin-top: 5% ;
+margin-bottom: 5%;
 }
-
-
 .table .btn{
   background-color:rgb(182, 17, 17);
   color:#ffffff ;
@@ -57,7 +62,7 @@ div.card{
 h4 .btn{
   background-color: rgb(24, 172, 24);
   color: #ffffff;
-  cursor: pointer;
+  cursor: pointer; 
   border-radius: 5px ;
   text-align: center;
 }

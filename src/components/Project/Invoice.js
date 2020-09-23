@@ -17,13 +17,9 @@ class Invoice extends Component {
           Quantity: 0,
           Price: 0.00,
           Total: 0,
-         
-         
-        },
-       
-      ]
-      
-    };
+         },
+       ]
+      };
     handleInvoiceChange = (event) => {
       this.setState({[event.target.name]: event.target.value})
     }
@@ -85,69 +81,65 @@ render (){
     return ( 
     <div class="container"> 
          <div className="card">
+          
            <img src={logo} alt="a logo"/><br/>
            <div class="a" >
             <h2> SOFTWARE INVOICE </h2>
             </div>
-            < div class="row">
+           
             <div class="form-group col-md-6">
-            <div id="textarea">
-              <h2>
+           <h2>
+           <div id="textarea">
              <p class="alignleft">
-              
-                <h2>Company Name </h2>
-          
-              <textarea input type ="text" name = "textarea" id = "textarea" rows = "6 " cols = "35"  ></textarea>
-              </p>
-              
-             <p class="alignright">
+            <h2>Company Name </h2>
+            <textarea input type ="text" name = "textarea" id = "textarea" rows = "5 " cols = "30 "  ></textarea>
+            </p>
+            <p class="alignright">
               <div class="row ">
-              <div class="form-group col-md-6">
+              <form>
+              <div class="form-group col-md-5 ">
               <label >Invoice No:</label>
-                             
-              <input type="text"></input> 
+              <input type="text" ></input> 
               </div>
                <br/> 
-               <div class="form-group col-md-6">
+               <div class="form-group col-md-5">
               <label >Date:</label>
                <h3>
               <input type="Date"></input><br/>
               </h3>
-             </div>
-             <div class="form-group col-md-6">
+              </div>
+              <div class="form-group col-md-5 ">
               <label >Customer Id:</label>
-              
               <input type="text"></input><br/>
-             </div>
-             <div class="form-group col-md-6">
+              </div>
+              <div class="form-group col-md-5">
               <label >DueDate:</label>
                <h3>
               <input type="Date"></input><br/>
               </h3>
              </div>
+             </form>
              </div>
               </p>
-            </h2 > 
+              </div>
+              </h2 > 
+          
            </div>
-          </div>
-        </div>
-              <div id="textarea">
+            <div id="textarea">
                 <h2>
                 <p class="alignleft">
                   <label>
                     Client 
                   </label><br/>
-                <textarea input type ="text" name = "textarea" id = "textarea" rows = "6" cols = "35"  ></textarea>
-                   </p>
-                <p class="alignright">
-              <label>Bill To</label><br/>
-                <textarea input type ="text" name = "textarea" id = "textarea" rows = "6" cols = "35"  ></textarea>
+                  <textarea input type ="text" name = "textarea" id = "textarea" rows = "5" cols = "30"  ></textarea>
+               </p>
+              <p class="alignright">
+                  <label>Bill To</label><br/>
+                 <textarea input type ="text" name = "textarea" id = "textarea" rows = "5" cols = "30"  ></textarea>
             </p>
             </h2>
             </div>
-            <div className="row clearfix">
-              <div className="col-md-12 column">
-              <table class="table table-bordered">
+            <table class="table table-bordered  " id="Invoice">
                  <thead>
                     <tr>
                       <th className="text-center"> s/no</th>
@@ -156,6 +148,7 @@ render (){
                       <th className="text-center"> Quantity </th>
                       <th className="text-center"> Price  </th>
                       <th className="text-center"> Total </th>
+                      
                     </tr>
                   </thead>
                   <tbody>
@@ -188,7 +181,7 @@ render (){
 
                         <td>
                         <button type="button" onClick={this.handleRemovelineItem} className="pull-right btn btn-default">
-                   -
+                   X
                  </button>
                         </td>
                       </tr>
@@ -202,10 +195,10 @@ render (){
                 </button>
                 </h4>
                 <br/><br/>
-                <div class="row">
+              <div class="row">
                <div class="col-md-6">  
                <div class="col-md-push-6">
-                 <form >
+                 <form align="right">
                 
                 <div class="form-group row">
                  <label for="Subtotal" class="col-sm-2 col-form-label" >Subtotal</label>
@@ -244,10 +237,9 @@ render (){
                  <br/>
                  <p><h2><center>Thank You </center> </h2></p>
                  </div>
-              </div>
-            </div>
+                 </div>
           </div>
-        </div>
+       
       );
     }
   }

@@ -146,13 +146,13 @@ class Invoice extends Component {
             <div className={styles.valueTable}>
               < div className={styles.row}>
                 <div className={styles.label}>Subtotal</div>
-                <div c lassName={`${styles.value} ${styles.currency}`}>{this.formatCurrency(this.calcLineItemsTotal())}</div>
-              </div>
+                <div c  lassName={`${styles.value} ${styles.currency}`}>{this.formatCurrency(this.calcLineItemsTotal())}</div>
+              </ div>
               <div className={styles.row}>
                 <div className={styles.label}>Tax ({this.state.taxRate}%)</div>
                 <div className={`${styles.value} ${styles.currency}`}>{this.formatCurrency(this.calcTaxTotal())}</div>
            </div>
-              <div className={styles.row}>
+              <div className={styles.row}>  
                 <div className={styles.label}>Total Due</div>
                 <div className={`${styles.value} ${styles.currency}`}>{this.formatCurrency(this.calcGrandTotal())}</div>
               </div>

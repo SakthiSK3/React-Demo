@@ -1,25 +1,65 @@
-thead{
-    background-color: #bbb8b8d5;
-    color:  #000000;
-    font-size: 15px;
-}
-td{
-border-color: #000000;
-font-size: 13px;
-}
-div.card{
-   width: 80%;
+.container{
+  background-color: darkgrey;
+ 
+  }   
+  img {
+      padding: 5px;
+      width: 200px;
+      border-radius: 8px;
+      
+    } 
+  #Invoice{
+    margin-left: 4%;
+    margin-right: 4%;
+    margin-top: 4%;
+    margin-bottom: 4%;
     
-}
-form {
-    text-align: right;
-}
-    .form-label{ 
-        text-align:right ;
-}
+  }
+  div.a  {
+      text-align: center ;
+      color  :blue;
+  }
+    .alignleft {
+        float: left;
+    }
+    .alignright {
+      float: right;
+  } 
+   label{
+    
+     color: black;
+     width: 50% ;
+     font-size: 90%;
+    
+ }
+ table{
+   width: 60%;
 
+ }
+thead{
 
-.table .btn{
+     background-color: #bbb8b8d5;
+    color:  #000000;
+    font-size: 14px;
+   }
+  td{
+ 
+  padding:  5px;
+   
+  }
+  div.card{
+   width: 85%;
+   background-color:#ffffff;
+   border: 5px solid block;
+   margin-left: 5%;
+  margin-right: 5%;
+  margin-top: 5%;
+  margin-bottom: 5%;
+  
+
+  }
+ 
+  table .btn{
     background-color:rgb(182, 17, 17);
     color:#ffffff ;
     border: none;
@@ -27,13 +67,42 @@ form {
     border-radius: 5px;
     
   }
-
-h4 .btn{
-    background-color: rgb(24, 172, 24);
-    color: #ffffff;
-    cursor: pointer;
-    border-radius: 5px ;
-    text-align: center;
-}
-
   
+  h4 .btn{
+    background-color: rgb(10, 124, 10);
+    color: #ffffff;
+    cursor: pointer; 
+    border-radius: 2px solid block;
+    text-align: center;
+  }
+  .resizedTextbox {
+    width: 155px;
+    height: 25px;
+    
+  }
+  .grid-container {
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    grid-template-rows: 50px ;
+    padding: 1px;
+    width: 30%;
+    border-radius: 4px;
+     font-size: 14 px;
+    text-align: center;
+    height: 10%;
+  }
+  
+  .grid-container > div {
+    border:1px solid #000000 ;
+    font-size: 15px;
+    border-radius: 4px;
+    column-gap: normal; 
+  }
+  .item{
+     
+text-align: left;
+  }
+  .value{
+      text-align: right ;
+  }
+ 

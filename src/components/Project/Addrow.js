@@ -1,10 +1,9 @@
-import React from 'react';
+import React,{Component} from 'react';
+import logo from './logo.png';
 
 import './Invoice1.css';
-class App extends React.Component {
-  locale = 'en-US'
-  currency = 'USD'
-
+class Invoice extends Component {
+ 
 
     state = {
       TaxRate: 0.00,
@@ -17,10 +16,8 @@ class App extends React.Component {
           Price: 0.00,
           Total: 0,
          },
-       
-      ]
-      
-    };
+       ]
+      };
     handleInvoiceChange = (event) => {
       this.setState({[event.target.name]: event.target.value})
     }
@@ -37,7 +34,7 @@ class App extends React.Component {
         Item:'',
         Quantity:0,
         Price   :0.00,
-        
+        Total:''
       };
       this.setState({
         lineItems: [...this.state.lineItems, item]
@@ -48,7 +45,15 @@ class App extends React.Component {
         lineItems: this.state.lineItems.slice(0, -1)
       });
     };
-    calcTaxAmount = (c) => {
+    formatCurrency = (amount) => {
+    return (new Intl.NumberFormat(this.locale, {
+      style: 'currency',
+      currency: this.currency,
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2
+    }).format(amount))
+  };
+  calcTaxAmount = (c) => {
       return c * (this.state.TaxRate / 100)
     }   
   
@@ -66,14 +71,61 @@ class App extends React.Component {
     handleFocusSelect = (event) => {
       event.target.select()
     }
-    render() {    
-      var Sum=[this.state.Total];
-      console.log(Sum)
-      return (
-        <div className="container">
-          <div className="row clearfix">
-            <div className="card "> 
-              <table class="table table-bordered">
+    render (){
+  
+    return ( 
+    <div className="container">
+         <div className="card">
+          <div id="Invoice">
+
+           <img src={logo} alt="a logo"/>
+           <div class="a" >
+            <h2> SOFTWARE INVOICE </h2>
+            </div>
+           <h2>  
+           <div id="textarea">
+             <p class="alignleft">
+            <label>Company Name </label>
+            <textarea input type ="text" name = "textarea" id = "textarea" rows = "5 " cols = "25"  ></textarea>
+          </p>
+            <p class="alignright">
+             <form >
+              <div class="loginDiv">
+              <label for="Invoice"  >Invoice No:</label>
+              <input type="text" class="resizedTextbox" name="Invoice No"/> 
+        
+                
+             <label  for="date">Date:</label>
+               <h3>
+               <input type="date" class="resizedTextbox" name="Date"/> 
+              </h3>
+             
+             
+              <label  for="Customor">Customer Id:</label>
+              <input type="text" class="resizedTextbox" name="customer Id"/> 
+            
+        </div>
+       </form>
+            </p>
+              </div>
+              </h2 > 
+          
+              <div id="textarea">
+                <h2>
+                <p class="alignleft">
+                  <label>
+                    Client 
+                  </label><br/>
+                  <textarea input type ="text" name = "textarea" id = "textarea" rows = "5" cols = "25"  ></textarea>
+               </p>
+              <p class="alignright">
+                  <label>Bill To</label>
+                 <textarea input type ="text" name = "textarea" id = "textarea" rows = "5" cols = "25"  ></textarea>
+            </p>
+            </h2>
+            </div><br/>
+           
+            <table class="table table-bordered ">
                  <thead>
                     <tr>
                       <th className="text-center"> s/no</th>
@@ -82,13 +134,15 @@ class App extends React.Component {
                       <th className="text-center"> Quantity </th>
                       <th className="text-center"> Price  </th>
                       <th className="text-center"> Total </th>
+                      <th className="text-center"> </th>
                     </tr>
                   </thead>
                   <tbody>
                     
-                     {this.state.lineItems.map((item, idx) => (
-                      <tr  >
-                        <td>{idx +1}</td>
+                    {this.state.lineItems.map((item, idx) => (
+                      <tr id="addr0" key={idx}>
+                        <td>{idx  +1}</td>
+                     
                         <td>
                           <input type="text" name="Descripition" value={this.state.lineItems[idx].Descripition} onChange={this.handlelineItemsChange(idx)} 
                           />
@@ -98,6 +152,7 @@ class App extends React.Component {
                             type="text" name="Item"  value={this.state.lineItems[idx].Item} onChange={this.handlelineItemsChange(idx)} 
                           />
                         </td> 
+                       
                         <td>
                           <input
                             type="number" name="Quantity" step="1"  value={this.state.lineItems[idx].Quantity} onChange={this.handlelineItemsChange(idx)} onFocus={this.state.focusHandler}
@@ -111,51 +166,37 @@ class App extends React.Component {
                      <td> 
                      <input type="text" readonly="readonly"  $ value={(this.state.lineItems[idx].Quantity *  this.state.lineItems[idx].Price)} />
                      </td>
-                    
+
                         <td>
                         <button type="button" onClick={this.handleRemovelineItem} className="pull-right btn btn-default">
-                   -
+                   X
                  </button>
                         </td>
                       </tr>
                     ))}
                   </tbody>
                 </table>
-                <h4>
+                <br/>
+               <h4>
                 <button type="button"
                   onClick={this.handleAddlineItems}  className="btn btn-default pull-left"  >
                       + Add Item
                 </button>
                 </h4>
                 <br/><br/>
-              <form >
-
-                <div class="form-group row">
-                 <label for="Subtotal" class="col-sm-2 col-form-label" >Subtotal</label>
-                 <div class="col-sm-10">
-
-                 <input type="text" readonly="readonly" value={this.calclineItemsTotal()}/>
-                      
-                 </div>
-                 </div>
-                 <div class="form-group row" >
-                  <br/>
-                 <label for="Tax" class="col-sm-2 col-form-label">Tax({this.state.TaxRate})%</label>
-                 <div class="col-sm-10" >
-
-                 <input type="text" readonly="readonly" value={this.calcTaxTotal()} />
-                  </div>
-                 </div>
-                  
-                 <div class="form-group row">
-                 <label for="TotalDue" class="col-sm-2 col-form-label">TotalDue</label>
-                 <div class="col-sm-10">
-                  <input type="text" readonly="readonly" value={this.calcGrandTotal} />
-                </div>
-                </div>
-              
-                </form>
-                <div class ="card-footer">
+               
+          <form>
+             <div class="grid-container">
+             <div class="item">Subtotal</div>
+             <div class="value">{this.calclineItemsTotal()}</div>
+             <div class="item ">Tax({this.state.TaxRate}%)</div>  
+             <div class="value">{this.calcTaxTotal()}</div> 
+             <div class="item">Grand total</div>
+            <div class="value">{this.calcGrandTotal}</div>
+  
+            </div>
+           </form><br/><br/>
+               <div class ="card-footer">
                   <h2>Notes</h2>
                    <h3>
                   <p> Invoice Notes specific to each customer or subscription can be provided. ...</p>
@@ -166,12 +207,11 @@ class App extends React.Component {
                  <p><h2><center>Thank You </center> </h2></p>
                  </div>
                  </div>
-              </div>
             </div>
 
-      
-        
+            </div>
       );
     }
   }
-export default App;
+  
+ export default Invoice;

@@ -1,0 +1,52 @@
+
+.v{
+margin: 0 0 0 auto;
+border: 1px solid #ccc;
+border-radius: 4px;
+overflow: hidden;
+width: 90%;
+min-width: 266.66667px;
+max-width: 266.66667px;
+}
+.row {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+ border-bottom: 1px solid #ccc;
+}
+.label{
+justify-content: flex-start;
+font-weight: 700;
+
+}
+.value
+{
+   
+    padding: 10px;
+}
+
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    grid-template-rows: 50px ;
+    padding: 1px;
+    width: 20%;
+    border-radius: 4px;
+    overflow: hidden;
+    font-size: 15px;
+    height: 10%;
+  }
+  
+  .grid-container > div {
+    border:1px solid #000000 ;
+    font-size: 15px;
+    border-radius: 4px;
+    
+  }
+  .item{
+     
+text-align: left;
+  }
+  .value{
+      text-align: right ;
+  }
